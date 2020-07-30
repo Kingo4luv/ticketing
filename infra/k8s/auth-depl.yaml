@@ -1,21 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: auth-depl
-spec: 
+spec:
   replicas: 1
-  selector: 
-    matchLabels: 
+  selector:
+    matchLabels:
       app: auth
-  template: 
-    metadata: 
-      labels: 
+  template:
+    metadata:
+      labels:
         app: auth
-    spec: 
-      containers: 
-      - name: auth
-        image: kingo4luv/auth
-          
+    spec:
+      containers:
+        - name: auth
+          image: kingo4luv/auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: jJWT_KEY
 
 ---
 apiVersion: v1
@@ -26,9 +31,7 @@ spec:
   selector:
     app: auth
   ports:
-  - name: auth
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
-
-  
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
