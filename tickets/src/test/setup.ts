@@ -40,7 +40,7 @@ afterAll(async () => {
 
 global.signin = () => {
   const email = "test@test.com";
-  const id = "12bs529ks82";
+  const id = new mongoose.Types.ObjectId().toHexString();
 
   const payload = {
     id,
