@@ -3,5 +3,6 @@ auth/node_modules/
 client/node_modules/
 client/.next/
 tickets/node_modules
+nats-test/node_modules
 common
 
