@@ -4,5 +4,6 @@ client/.next/
 tickets/node_modules
 orders/node_modules
 nats-test/node_modules
+expiration/node_modules
 common
 
